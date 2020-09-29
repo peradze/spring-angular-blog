@@ -1,0 +1,23 @@
+<div class="auth-container">
+  <mat-card>
+    <button mat-icon-button color="primary" routerLink="/"><mat-icon>arrow_back</mat-icon></button>
+    <h1 class="text-center">Register</h1>
+
+    <form class="text-center" [formGroup]="loginForm">
+      <mat-form-field class="w100">
+        <mat-label>Email</mat-label>
+        <input matInput type="email" formControlName="email">
+      </mat-form-field>
+
+      <mat-form-field class="w100">
+        <mat-label>Password</mat-label>
+        <input matInput type="password" formControlName="password">
+      </mat-form-field>
+
+      <button mat-raised-button color="primary">Register</button>
+      <div class="mt1rem">
+        <a href="#" routerLink="/login">Already have account?</a>
+      </div>
+    </form>
+  </mat-card>
+</div>
