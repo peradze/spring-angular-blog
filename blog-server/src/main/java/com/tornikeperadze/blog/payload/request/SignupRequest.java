@@ -1,15 +1,13 @@
 package com.tornikeperadze.blog.payload.request;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
-import javax.validation.constraints.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
-@Setter
-@Getter
-@AllArgsConstructor
+@Data
 public class SignupRequest {
     @NotBlank
     @Email

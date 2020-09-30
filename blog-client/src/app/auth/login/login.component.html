@@ -15,7 +15,8 @@
         <input matInput type="password" formControlName="password">
       </mat-form-field>
 
-      <button mat-raised-button color="primary">Login</button>
+      <button mat-raised-button color="primary" [disabled]="loginForm.invalid || loading" (click)="submit()">
+        Login <span *ngIf="loading" class="btn-loader"><mat-spinner color="primary" [diameter]="20" [strokeWidth]="2"></mat-spinner></span></button>
 
       <div class="mt1rem">
         <a href="#" routerLink="/register">Register new account.</a>

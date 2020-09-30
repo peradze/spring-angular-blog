@@ -3,7 +3,7 @@
     <button mat-icon-button color="primary" routerLink="/"><mat-icon>arrow_back</mat-icon></button>
     <h1 class="text-center">Register</h1>
 
-    <form class="text-center" [formGroup]="loginForm">
+    <form class="text-center" [formGroup]="registerForm">
       <mat-form-field class="w100">
         <mat-label>Email</mat-label>
         <input matInput type="email" formControlName="email">
@@ -14,7 +14,8 @@
         <input matInput type="password" formControlName="password">
       </mat-form-field>
 
-      <button mat-raised-button color="primary">Register</button>
+      <button mat-raised-button color="primary"  [disabled]="registerForm.invalid || loading" (click)="submit()"
+      >Register <span *ngIf="loading" class="btn-loader"><mat-spinner color="primary" [diameter]="20" [strokeWidth]="2"></mat-spinner></span></button>
       <div class="mt1rem">
         <a href="#" routerLink="/login">Already have account?</a>
       </div>

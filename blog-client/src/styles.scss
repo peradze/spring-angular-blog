@@ -60,3 +60,92 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .mt1rem {
   margin-top: 1rem;
 }
+
+.btn-loader {
+  display: inline-block;
+  margin-left: 3px;
+}
+
+.notify-error {
+  background-color: white;
+  border: 1px solid #ff4444;
+  color: #303030;
+  padding: 2rem;
+  position: relative;
+  &:after {
+    font-family: "Material Icons";
+    content: "error";
+    position: absolute;
+    top: 1rem;
+    left: .6rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    color: #ff4444;
+  }
+  span:first-child {
+    padding-left: 1.4rem;
+  }
+}
+
+.notify-warn {
+  background-color: white;
+  border: 1px solid #ffbb33;
+  color: #303030;
+  padding: 2rem;
+  position: relative;
+  &:after {
+    font-family: "Material Icons";
+    content: "warning";
+    position: absolute;
+    top: 1rem;
+    left: .6rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    color: #ffbb33;
+  }
+  span:first-child {
+    padding-left: 1.4rem;
+  }
+}
+
+.notify-info {
+  background-color: white;
+  border: 1px solid #33b5e5;
+  color: #303030;
+  padding: 2rem;
+  position: relative;
+  &:after {
+    font-family: "Material Icons";
+    content: "info";
+    position: absolute;
+    top: 1rem;
+    left: .6rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    color: #33b5e5;
+  }
+  span:first-child {
+    padding-left: 1.4rem;
+  }
+}
+
+.notify-success {
+  background-color: white;
+  border: 1px solid #00C851;
+  color: #303030;
+  padding: 2rem;
+  position: relative;
+  &:after {
+    font-family: "Material Icons";
+    content: "check_circle";
+    position: absolute;
+    top: 1rem;
+    left: .6rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    color: #00C851;
+  }
+  span:first-child {
+    padding-left: 1.4rem;
+  }
+}
