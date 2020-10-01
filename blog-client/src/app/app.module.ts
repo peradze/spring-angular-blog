@@ -18,6 +18,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { LogoutComponent } from './auth/logout/logout.component';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatDividerModule } from '@angular/material/divider';
 
 @NgModule({
   declarations: [
@@ -41,6 +43,8 @@ import { LogoutComponent } from './auth/logout/logout.component';
     HttpClientModule,
     MatProgressSpinnerModule,
     MatSnackBarModule,
+    MatMenuModule,
+    MatDividerModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

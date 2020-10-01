@@ -30,7 +30,7 @@ export class RegisterComponent implements OnInit {
     this.authService.register(this.registerForm.value).subscribe(
       (res) => {
         this.loading = false;
-        this.snackBar.open('Registered successfully', 'Dismiss', {
+        this.snackBar.open(res.message, 'Dismiss', {
           duration: 3000,
           horizontalPosition: 'end',
           verticalPosition: 'top',

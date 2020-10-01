@@ -1,16 +1,16 @@
 package com.tornikeperadze.blog.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Data
+@Getter
+@Setter
+@EqualsAndHashCode
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
@@ -22,6 +22,7 @@ public class Post {
     private String title;
     @Lob
     private String content;
+    private LocalDateTime createdAt;
     @OneToOne(fetch = FetchType.LAZY)
     private Category category;
     @ManyToOne(fetch = FetchType.LAZY)
