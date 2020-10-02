@@ -1,21 +1,19 @@
 package com.tornikeperadze.blog.controller;
 
-import com.tornikeperadze.blog.model.Category;
 import com.tornikeperadze.blog.payload.request.CategoryRequest;
+import com.tornikeperadze.blog.payload.response.CategoryResponse;
 import com.tornikeperadze.blog.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @RestController
-@RequestMapping("/api/category")
+@RequestMapping("/api/categories")
 @Validated
 public class CategoryController {
 
@@ -27,9 +25,14 @@ public class CategoryController {
     }
 
     @PreAuthorize("hasRole('ADMIN')")
-    @PostMapping("/new")
+    @PostMapping
     public ResponseEntity<?> addCategory(@Valid @RequestBody CategoryRequest category) {
-        Category c = categoryService.save(category);
-        return ResponseEntity.ok(c);
+        return ResponseEntity.ok(categoryService.save(category));
+    }
+
+    @PreAuthorize("hasRole('ADMIN') or hasRole('USER')")
+    @GetMapping
+    public ResponseEntity<List<CategoryResponse>> getCategories() {
+        return ResponseEntity.ok(categoryService.getAll());
     }
 }

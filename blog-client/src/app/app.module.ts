@@ -20,6 +20,10 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { LogoutComponent } from './auth/logout/logout.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatDividerModule } from '@angular/material/divider';
+import { PostCreateComponent } from './post-create/post-create.component';
+import { MatSelectModule } from '@angular/material/select';
+import { JwtModule } from '@auth0/angular-jwt';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -29,6 +33,7 @@ import { MatDividerModule } from '@angular/material/divider';
     HeaderComponent,
     RegisterComponent,
     LogoutComponent,
+    PostCreateComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,6 +50,14 @@ import { MatDividerModule } from '@angular/material/divider';
     MatSnackBarModule,
     MatMenuModule,
     MatDividerModule,
+    MatSelectModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: () => JSON.parse(localStorage.getItem('currentUser')).token,
+        allowedDomains: [environment.baseDomain],
+        disallowedRoutes: [],
+      },
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent],

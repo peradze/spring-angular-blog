@@ -4,9 +4,11 @@ import { LoginComponent } from './auth/login/login.component';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { LogoutComponent } from './auth/logout/logout.component';
+import { PostCreateComponent } from './post-create/post-create.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
+  { path: 'new-post', component: PostCreateComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'logout', component: LogoutComponent },

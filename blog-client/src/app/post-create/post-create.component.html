@@ -1,0 +1,32 @@
+<app-header></app-header>
+
+<div class="new-post-cont">
+  <div class="container">
+    <div class="row">
+      <div class="col-8">
+        <form [formGroup]="blogForm">
+          <mat-form-field class="w100">
+            <mat-label>Title</mat-label>
+            <input matInput formControlName="title" placeholder="Post Title" required>
+          </mat-form-field>
+          <mat-form-field class="w100">
+            <mat-label>Content</mat-label>
+            <textarea matInput formControlName="content" placeholder="Post content..." required></textarea>
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Category</mat-label>
+            <mat-select (selectionChange)="categorySelection($event.value)" required>
+              <mat-option *ngFor="let category of categories" [value]="category.id">
+                {{category.name}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <div>
+            <button mat-raised-button color="primary" type="button" [disabled]="blogForm.invalid || loading"  (click)="submit()">
+              Submit<span *ngIf="loading" class="btn-loader"><mat-spinner color="primary" [diameter]="20" [strokeWidth]="2"></mat-spinner></span></button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

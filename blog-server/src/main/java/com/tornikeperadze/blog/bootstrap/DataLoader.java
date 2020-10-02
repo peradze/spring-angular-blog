@@ -1,7 +1,9 @@
 package com.tornikeperadze.blog.bootstrap;
 
+import com.tornikeperadze.blog.model.Category;
 import com.tornikeperadze.blog.model.Role;
 import com.tornikeperadze.blog.model.User;
+import com.tornikeperadze.blog.repository.CategoryRepository;
 import com.tornikeperadze.blog.repository.RoleRepository;
 import com.tornikeperadze.blog.repository.UserRepository;
 import org.springframework.boot.CommandLineRunner;
@@ -18,11 +20,13 @@ public class DataLoader implements CommandLineRunner {
     private final UserRepository userRepository;
     private final RoleRepository roleRepository;
     private final PasswordEncoder passwordEncoder;
+    private final CategoryRepository categoryRepository;
 
-    public DataLoader(UserRepository userRepository, RoleRepository roleRepository, PasswordEncoder passwordEncoder) {
+    public DataLoader(UserRepository userRepository, RoleRepository roleRepository, PasswordEncoder passwordEncoder, CategoryRepository categoryRepository) {
         this.userRepository = userRepository;
         this.roleRepository = roleRepository;
         this.passwordEncoder = passwordEncoder;
+        this.categoryRepository = categoryRepository;
     }
 
     @Override
@@ -43,6 +47,11 @@ public class DataLoader implements CommandLineRunner {
                     .roles(Set.of(adminRole, userRole))
                     .build();
             userRepository.save(user);
+
+            Category general = new Category("General");
+            Category java = new Category("Java");
+            categoryRepository.save(general);
+            categoryRepository.save(java);
         }
 
     }
