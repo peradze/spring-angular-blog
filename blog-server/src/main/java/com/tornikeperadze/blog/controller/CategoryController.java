@@ -1,7 +1,7 @@
 package com.tornikeperadze.blog.controller;
 
-import com.tornikeperadze.blog.payload.request.CategoryRequest;
-import com.tornikeperadze.blog.payload.response.CategoryResponse;
+import com.tornikeperadze.blog.dto.request.CategoryRequest;
+import com.tornikeperadze.blog.dto.response.CategoryResponse;
 import com.tornikeperadze.blog.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

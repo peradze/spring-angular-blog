@@ -1,8 +1,8 @@
 package com.tornikeperadze.blog.mapper;
 
 import com.tornikeperadze.blog.model.Post;
-import com.tornikeperadze.blog.payload.request.PostRequest;
-import com.tornikeperadze.blog.payload.response.PostListResponse;
+import com.tornikeperadze.blog.dto.request.PostRequest;
+import com.tornikeperadze.blog.dto.response.PostListResponse;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;

@@ -1,7 +1,7 @@
 package com.tornikeperadze.blog.service;
 
-import com.tornikeperadze.blog.payload.request.PostRequest;
-import com.tornikeperadze.blog.payload.response.PostListResponse;
+import com.tornikeperadze.blog.dto.request.PostRequest;
+import com.tornikeperadze.blog.dto.response.PostListResponse;
 
 import java.util.List;
 

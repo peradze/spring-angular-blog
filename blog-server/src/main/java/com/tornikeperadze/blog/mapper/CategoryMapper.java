@@ -1,8 +1,8 @@
 package com.tornikeperadze.blog.mapper;
 
 import com.tornikeperadze.blog.model.Category;
-import com.tornikeperadze.blog.payload.request.CategoryRequest;
-import com.tornikeperadze.blog.payload.response.CategoryResponse;
+import com.tornikeperadze.blog.dto.request.CategoryRequest;
+import com.tornikeperadze.blog.dto.response.CategoryResponse;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 

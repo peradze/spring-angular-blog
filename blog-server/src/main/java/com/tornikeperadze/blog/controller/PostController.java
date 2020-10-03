@@ -1,8 +1,8 @@
 package com.tornikeperadze.blog.controller;
 
-import com.tornikeperadze.blog.payload.request.PostRequest;
-import com.tornikeperadze.blog.payload.response.MessageResponse;
-import com.tornikeperadze.blog.payload.response.PostListResponse;
+import com.tornikeperadze.blog.dto.request.PostRequest;
+import com.tornikeperadze.blog.dto.response.MessageResponse;
+import com.tornikeperadze.blog.dto.response.PostListResponse;
 import com.tornikeperadze.blog.service.PostService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;

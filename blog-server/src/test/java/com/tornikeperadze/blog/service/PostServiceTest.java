@@ -1,6 +1,6 @@
 package com.tornikeperadze.blog.service;
 
-import com.tornikeperadze.blog.payload.request.PostRequest;
+import com.tornikeperadze.blog.dto.request.PostRequest;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

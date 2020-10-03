@@ -38,7 +38,7 @@ $blog-client-theme: mat-light-theme((
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-color: whitesmoke }
 
 
 .auth-container {
@@ -148,4 +148,12 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   span:first-child {
     padding-left: 1.4rem;
   }
+}
+
+.primary-container {
+  margin-top: 3rem;
+}
+
+.mr1rem {
+  margin-right: 1rem;
 }

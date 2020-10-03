@@ -2,10 +2,10 @@ package com.tornikeperadze.blog.controller;
 
 import com.tornikeperadze.blog.model.Role;
 import com.tornikeperadze.blog.model.User;
-import com.tornikeperadze.blog.payload.request.LoginRequest;
-import com.tornikeperadze.blog.payload.request.SignupRequest;
-import com.tornikeperadze.blog.payload.response.JwtResponse;
-import com.tornikeperadze.blog.payload.response.MessageResponse;
+import com.tornikeperadze.blog.dto.request.LoginRequest;
+import com.tornikeperadze.blog.dto.request.SignupRequest;
+import com.tornikeperadze.blog.dto.response.JwtResponse;
+import com.tornikeperadze.blog.dto.response.MessageResponse;
 import com.tornikeperadze.blog.security.jwt.JwtUtils;
 import com.tornikeperadze.blog.service.RoleService;
 import com.tornikeperadze.blog.service.UserService;

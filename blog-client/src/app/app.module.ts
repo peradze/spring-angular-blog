@@ -24,6 +24,7 @@ import { PostCreateComponent } from './post-create/post-create.component';
 import { MatSelectModule } from '@angular/material/select';
 import { JwtModule } from '@auth0/angular-jwt';
 import { environment } from '../environments/environment';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { environment } from '../environments/environment';
     RegisterComponent,
     LogoutComponent,
     PostCreateComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,

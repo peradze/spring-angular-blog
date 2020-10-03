@@ -27,6 +27,9 @@ public class User implements UserDetails {
     @NotBlank
     @Email
     private String email;
+    private String firstName;
+    private String lastName;
+    @NotBlank
     private String password;
     private boolean isAccExpired;
     private boolean isAccLocked;

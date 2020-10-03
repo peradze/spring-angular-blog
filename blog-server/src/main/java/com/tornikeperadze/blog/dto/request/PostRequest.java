@@ -1,4 +1,4 @@
-package com.tornikeperadze.blog.payload.request;
+package com.tornikeperadze.blog.dto.request;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;

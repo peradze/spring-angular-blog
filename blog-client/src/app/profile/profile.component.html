@@ -1,0 +1,34 @@
+<app-header></app-header>
+
+<div class="primary-container">
+
+    <div class="container">
+      <div class="row">
+        <div class="col-8">
+          <mat-card>
+            <h3>Profile info</h3>
+            <form [formGroup]="profileForm">
+              <mat-form-field class="mr1rem">
+                <mat-label>First Name</mat-label>
+                <input matInput formControlName="firstName" required>
+              </mat-form-field>
+
+              <mat-form-field class="">
+                <mat-label>Last Name</mat-label>
+                <input matInput formControlName="lastName" required>
+              </mat-form-field>
+            </form>
+            <mat-form-field class="">
+              <mat-label>Email</mat-label>
+              <input matInput disabled [value]="profileInfo?.email">
+            </mat-form-field>
+            <div>
+              <button mat-raised-button color="primary" [disabled]="profileForm.invalid || loading" (click)="submit()">
+                Update  <span *ngIf="loading" class="btn-loader"><mat-spinner color="primary" [diameter]="20" [strokeWidth]="2"></mat-spinner></span></button>
+            </div>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+
+</div>

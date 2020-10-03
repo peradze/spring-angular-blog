@@ -1,7 +1,7 @@
 package com.tornikeperadze.blog.mapper;
 
 import com.tornikeperadze.blog.model.Post;
-import com.tornikeperadze.blog.payload.request.PostRequest;
+import com.tornikeperadze.blog.dto.request.PostRequest;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

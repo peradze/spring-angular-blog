@@ -1,4 +1,4 @@
-package com.tornikeperadze.blog.payload.response;
+package com.tornikeperadze.blog.dto.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
