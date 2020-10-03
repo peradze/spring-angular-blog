@@ -1,10 +1,11 @@
 package com.tornikeperadze.blog.service.impl;
 
+import com.tornikeperadze.blog.dto.request.PostRequest;
+import com.tornikeperadze.blog.dto.response.PostDetailResponse;
+import com.tornikeperadze.blog.dto.response.PostListResponse;
 import com.tornikeperadze.blog.mapper.PostMapper;
 import com.tornikeperadze.blog.model.Post;
 import com.tornikeperadze.blog.model.User;
-import com.tornikeperadze.blog.dto.request.PostRequest;
-import com.tornikeperadze.blog.dto.response.PostListResponse;
 import com.tornikeperadze.blog.repository.PostRepository;
 import com.tornikeperadze.blog.repository.UserRepository;
 import com.tornikeperadze.blog.service.PostService;
@@ -53,15 +54,26 @@ public class PostServiceImp implements PostService {
             if (post.getUser().getFirstName() != null) {
                 author = post.getUser().getFirstName() + " " + post.getUser().getLastName();
             }
+            String contentPreview = "...";
+            int startIndex = post.getContent().indexOf("<p");
+            int endIndex = post.getContent().indexOf("</p");
+            if (startIndex != -1 && endIndex != -1) {
+                contentPreview = post.getContent().substring(startIndex, endIndex);
+            }
             postListResponses.add(new PostListResponse(
                     post.getId(),
                     post.getTitle(),
                     post.getCategory().getName(),
                     author,
-                    post.getContent().substring(0, Math.min(post.getContent().length(), 60)),
+                    contentPreview,
                     post.getCreatedAt()
             ));
         }
         return postListResponses;
+    }
+
+    @Override
+    public PostDetailResponse getPostDetail(Long id) {
+        return null;
     }
 }

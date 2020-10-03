@@ -34,6 +34,8 @@ $blog-client-theme: mat-light-theme((
 @include angular-material-theme($blog-client-theme);
 
 @import "~bootstrap/scss/bootstrap-grid";
+@import "~quill/dist/quill.bubble.css";
+@import "~quill/dist/quill.snow.css";
 
 /* You can add global styles to this file, and also import other style files */
 
@@ -186,4 +188,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-
 .pbt2rem {
   padding-top: 2rem;
   padding-bottom: 2rem;
+}
+
+.mb1rem {
+  margin-bottom: 1rem;
 }

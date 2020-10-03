@@ -25,6 +25,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { JwtModule } from '@auth0/angular-jwt';
 import { environment } from '../environments/environment';
 import { ProfileComponent } from './profile/profile.component';
+import { QuillModule } from 'ngx-quill';
 
 @NgModule({
   declarations: [
@@ -55,9 +56,35 @@ import { ProfileComponent } from './profile/profile.component';
     MatSelectModule,
     JwtModule.forRoot({
       config: {
-        tokenGetter: () => JSON.parse(localStorage.getItem('currentUser')).token,
+        tokenGetter: () =>
+          JSON.parse(localStorage.getItem('currentUser')).token,
         allowedDomains: [environment.baseDomain],
         disallowedRoutes: [environment.baseUrl + '/api/auth/login'],
+      },
+    }),
+    QuillModule.forRoot({
+      modules: {
+        toolbar: [
+          ['bold', 'italic', 'underline', 'strike'], // toggled buttons
+          ['blockquote', 'code-block'],
+
+          [{ header: 1 }, { header: 2 }], // custom button values
+          [{ list: 'ordered' }, { list: 'bullet' }],
+          [{ script: 'sub' }, { script: 'super' }], // superscript/subscript
+          [{ indent: '-1' }, { indent: '+1' }], // outdent/indent
+          [{ direction: 'rtl' }], // text direction
+
+          [{ size: ['small', false, 'large', 'huge'] }], // custom dropdown
+          [{ header: [1, 2, 3, 4, 5, 6, false] }],
+
+          [{ color: [] }, { background: [] }], // dropdown with defaults from theme
+          [{ font: [] }],
+          [{ align: [] }],
+
+          ['clean'], // remove formatting button
+
+          ['link'], // link and image, video
+        ],
       },
     }),
   ],

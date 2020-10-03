@@ -2,6 +2,7 @@ package com.tornikeperadze.blog.controller;
 
 import com.tornikeperadze.blog.dto.request.PostRequest;
 import com.tornikeperadze.blog.dto.response.MessageResponse;
+import com.tornikeperadze.blog.dto.response.PostDetailResponse;
 import com.tornikeperadze.blog.dto.response.PostListResponse;
 import com.tornikeperadze.blog.service.PostService;
 import org.springframework.http.ResponseEntity;
@@ -32,5 +33,10 @@ public class PostController {
     @GetMapping
     public ResponseEntity<List<PostListResponse>> getAll() {
         return ResponseEntity.ok(postService.getAll());
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<PostDetailResponse> getPost(@PathVariable Long id) {
+        return ResponseEntity.ok(postService.getPostDetail(id));
     }
 }

@@ -10,11 +10,15 @@
               <mat-label>Title</mat-label>
               <input matInput formControlName="title" placeholder="Post Title" required>
             </mat-form-field>
-            <mat-form-field class="w100">
-              <mat-label>Content</mat-label>
-              <textarea matInput formControlName="content" placeholder="Post content..." required></textarea>
-            </mat-form-field>
-            <mat-form-field appearance="fill">
+
+            <div class="mb1rem">Content</div>
+            <quill-editor formControlName="content"></quill-editor>
+<!--            <mat-form-field class="w100">-->
+<!--              <mat-label>Content</mat-label>-->
+
+<!--              <textarea matInput formControlName="content" placeholder="Post content..." required></textarea>-->
+<!--            </mat-form-field>-->
+            <mat-form-field appearance="fill" class="mt1rem">
               <mat-label>Category</mat-label>
               <mat-select (selectionChange)="categorySelection($event.value)" required>
                 <mat-option *ngFor="let category of categories" [value]="category.id">
