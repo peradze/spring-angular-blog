@@ -55,7 +55,7 @@ import { environment } from '../environments/environment';
       config: {
         tokenGetter: () => JSON.parse(localStorage.getItem('currentUser')).token,
         allowedDomains: [environment.baseDomain],
-        disallowedRoutes: [],
+        disallowedRoutes: [environment.baseUrl + '/api/auth/login'],
       },
     }),
   ],

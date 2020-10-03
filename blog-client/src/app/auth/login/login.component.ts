@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
       },
       (error: HttpErrorResponse) => {
         this.loading = false;
-        this.snackBar.open(error.error.message, 'Dismiss', {
+        this.snackBar.open(error.error?.message, 'Dismiss', {
           duration: 3000,
           horizontalPosition: 'end',
           verticalPosition: 'top',

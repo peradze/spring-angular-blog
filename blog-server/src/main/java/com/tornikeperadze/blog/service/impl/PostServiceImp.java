@@ -4,6 +4,7 @@ import com.tornikeperadze.blog.mapper.PostMapper;
 import com.tornikeperadze.blog.model.Post;
 import com.tornikeperadze.blog.model.User;
 import com.tornikeperadze.blog.payload.request.PostRequest;
+import com.tornikeperadze.blog.payload.response.PostListResponse;
 import com.tornikeperadze.blog.repository.PostRepository;
 import com.tornikeperadze.blog.repository.UserRepository;
 import com.tornikeperadze.blog.service.PostService;
@@ -13,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Service
 public class PostServiceImp implements PostService {
@@ -39,5 +41,10 @@ public class PostServiceImp implements PostService {
             throw new RuntimeException(e.getMessage());
         }
         return post;
+    }
+
+    @Override
+    public List<PostListResponse> getAll() {
+        return PostMapper.INSTANCE.postsToPostListDto(postRepository.findAll());
     }
 }
