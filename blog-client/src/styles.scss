@@ -157,3 +157,33 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-
 .mr1rem {
   margin-right: 1rem;
 }
+.post-container {
+  h1 {
+    margin-top: .2rem;
+    margin-bottom: .2rem;
+  }
+  a {
+    color: map-get($mat-indigo, 600);
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+}
+.blog-meta {
+  display: flex;
+  justify-content: space-between;
+}
+
+.text-italic {
+  font-style: italic;
+}
+
+.mb2rem {
+  margin-bottom: 2rem;
+}
+
+.pbt2rem {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}

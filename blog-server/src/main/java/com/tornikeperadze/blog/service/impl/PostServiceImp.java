@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -45,6 +46,22 @@ public class PostServiceImp implements PostService {
 
     @Override
     public List<PostListResponse> getAll() {
-        return PostMapper.INSTANCE.postsToPostListDto(postRepository.findAll());
+        List<PostListResponse> postListResponses = new ArrayList<>();
+        List<Post> posts = postRepository.findAll();
+        for (Post post : posts) {
+            String author = "";
+            if (post.getUser().getFirstName() != null) {
+                author = post.getUser().getFirstName() + " " + post.getUser().getLastName();
+            }
+            postListResponses.add(new PostListResponse(
+                    post.getId(),
+                    post.getTitle(),
+                    post.getCategory().getName(),
+                    author,
+                    post.getContent().substring(0, Math.min(post.getContent().length(), 60)),
+                    post.getCreatedAt()
+            ));
+        }
+        return postListResponses;
     }
 }
