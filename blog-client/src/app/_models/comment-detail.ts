@@ -1,5 +1,5 @@
 export class CommentDetail {
-  name: string;
+  comment: string;
   author: string;
   createdAt: Date;
 }

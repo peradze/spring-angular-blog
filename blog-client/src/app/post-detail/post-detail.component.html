@@ -20,6 +20,28 @@
                 <quill-view [content]="post?.content" format="html" theme="snow"></quill-view>
               </div>
             </div>
+            <div class="comment-section">
+              <form [formGroup]="commentForm">
+                <mat-form-field class="w100">
+                  <mat-label>Leave a comment</mat-label>
+                  <textarea formControlName="comment" matInput></textarea>
+                </mat-form-field>
+                <div class="d-flex justify-content-end mt1rem">
+                  <button mat-flat-button color="primary"
+                          [disabled]="commentForm.invalid || loading" (click)="submit()">Submit
+                    <span *ngIf="loading" class="btn-loader"><mat-spinner color="primary" [diameter]="20" [strokeWidth]="2"></mat-spinner></span></button>
+                </div>
+              </form>
+              <div *ngFor="let comment of comments">
+                <div class="comment-author">
+                  <div>{{comment.author}}</div>
+                </div>
+                <div class="comment-content">{{comment.comment}}</div>
+                <div class="d-flex justify-content-end">
+                  <div class="comment-date">{{comment.createdAt | timeago:false}}</div>
+                </div>
+              </div>
+            </div>
           </div>
         </mat-card>
       </div>

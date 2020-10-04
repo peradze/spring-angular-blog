@@ -27,6 +27,7 @@ import { environment } from '../environments/environment';
 import { ProfileComponent } from './profile/profile.component';
 import { QuillModule } from 'ngx-quill';
 import { PostDetailComponent } from './post-detail/post-detail.component';
+import { TimeagoModule } from 'ngx-timeago';
 
 @NgModule({
   declarations: [
@@ -56,6 +57,7 @@ import { PostDetailComponent } from './post-detail/post-detail.component';
     MatMenuModule,
     MatDividerModule,
     MatSelectModule,
+    TimeagoModule.forRoot(),
     JwtModule.forRoot({
       config: {
         tokenGetter: () =>

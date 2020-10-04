@@ -103,4 +103,9 @@ public class PostServiceImp implements PostService {
         postDetailResponse.setComments(commentDtos);
         return postDetailResponse;
     }
+
+    @Override
+    public Post getById(Long postId) {
+        return postRepository.findById(postId).get();
+    }
 }

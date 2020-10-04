@@ -154,9 +154,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-
 
 .primary-container {
   margin-top: 3rem;
+  margin-bottom: 3rem;
 }
 .secondary-container {
   margin-top: 1rem;
+  margin-bottom: 3rem;
 }
 
 .mr1rem {
@@ -205,4 +207,23 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-
 .blog-content {
   margin-left: -1rem;
   margin-right: -1rem;
+}
+
+.comment-content {
+  padding: 1rem;
+  background-color: whitesmoke;
+}
+
+.comment-author {
+  padding-left: 1rem;
+  font-size: 85%;
+  margin-bottom: -.5rem;
+  font-style: italic;
+}
+
+.comment-date {
+  padding-right: .5rem;
+  font-size: 81%;
+  margin-top: -.5rem;
+  font-style: italic;
 }
