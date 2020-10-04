@@ -13,7 +13,7 @@ public class PostDetailResponse {
     private String title;
     private String category;
     private String author;
-    private String contentPreview;
+    private String content;
     @JsonFormat(shape = JsonFormat.Shape.STRING)
     private LocalDateTime createdAt;
     private List<CommentDto> comments;

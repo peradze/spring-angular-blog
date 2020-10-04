@@ -1,0 +1,28 @@
+<app-header></app-header>
+
+<div class="secondary-container">
+  <div class="container">
+    <div class="row">
+      <div class="col-8">
+        <div class="mb1rem">
+          <button mat-icon-button color="primary" routerLink="/"><mat-icon>arrow_back</mat-icon></button>
+        </div>
+        <mat-card>
+          <div class="post-container">
+            <div class="pbt2rem">
+              <div class="blog-meta">
+                <div class="font-italic"><span>Date: </span>{{post?.createdAt | date}}</div>
+                <div><span>Category: </span> {{post?.category}}</div>
+              </div>
+              <h1>{{post?.title}}</h1>
+              <div class="mb2rem"><span>Author: </span>{{post?.author}}</div>
+              <div class="blog-content">
+                <quill-view [content]="post?.content" format="html" theme="snow"></quill-view>
+              </div>
+            </div>
+          </div>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>

@@ -26,6 +26,7 @@ import { JwtModule } from '@auth0/angular-jwt';
 import { environment } from '../environments/environment';
 import { ProfileComponent } from './profile/profile.component';
 import { QuillModule } from 'ngx-quill';
+import { PostDetailComponent } from './post-detail/post-detail.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { QuillModule } from 'ngx-quill';
     LogoutComponent,
     PostCreateComponent,
     ProfileComponent,
+    PostDetailComponent,
   ],
   imports: [
     BrowserModule,
