@@ -6,6 +6,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { CommentService } from '../_services/comment.service';
 import { CommentCreate } from '../_models/comment-create';
 import { CommentDetail } from '../_models/comment-detail';
+import { AuthService } from '../_services/auth.service';
 
 @Component({
   selector: 'app-post-detail',
@@ -22,14 +23,17 @@ export class PostDetailComponent implements OnInit {
   comments: CommentDetail[] = [];
   loading = false;
   postId;
+  loggedIn = false;
 
   constructor(
     private route: ActivatedRoute,
     private postService: PostService,
-    private commentService: CommentService
+    private commentService: CommentService,
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {
+    this.loggedIn = this.authService.isAuthorized();
     this.route.paramMap.subscribe((params) => {
       this.postService.getPostDetail(params.get('id')).subscribe((data) => {
         this.postId = Number(params.get('id'));

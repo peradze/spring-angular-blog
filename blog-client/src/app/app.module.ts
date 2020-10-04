@@ -61,7 +61,7 @@ import { TimeagoModule } from 'ngx-timeago';
     JwtModule.forRoot({
       config: {
         tokenGetter: () =>
-          JSON.parse(localStorage.getItem('currentUser')).token,
+          JSON.parse(localStorage.getItem('currentUser'))?.token,
         allowedDomains: [environment.baseDomain],
         disallowedRoutes: [environment.baseUrl + '/api/auth/login'],
       },

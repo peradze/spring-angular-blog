@@ -21,7 +21,7 @@
               </div>
             </div>
             <div class="comment-section">
-              <form [formGroup]="commentForm">
+              <form [formGroup]="commentForm" *ngIf="loggedIn">
                 <mat-form-field class="w100">
                   <mat-label>Leave a comment</mat-label>
                   <textarea formControlName="comment" matInput></textarea>

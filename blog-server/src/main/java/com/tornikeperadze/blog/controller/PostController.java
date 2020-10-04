@@ -6,6 +6,7 @@ import com.tornikeperadze.blog.dto.response.PostDetailResponse;
 import com.tornikeperadze.blog.dto.response.PostListResponse;
 import com.tornikeperadze.blog.service.PostService;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -23,6 +24,7 @@ public class PostController {
         this.postService = postService;
     }
 
+    @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
     @PostMapping
     public ResponseEntity<?> addPost(@Valid @RequestBody PostRequest postRequest) {
         postRequest.setUserEmail(SecurityContextHolder.getContext().getAuthentication().getName());
