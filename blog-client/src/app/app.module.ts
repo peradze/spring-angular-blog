@@ -28,6 +28,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { QuillModule } from 'ngx-quill';
 import { PostDetailComponent } from './post-detail/post-detail.component';
 import { TimeagoModule } from 'ngx-timeago';
+import { MatChipsModule } from '@angular/material/chips';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { TimeagoModule } from 'ngx-timeago';
     MatMenuModule,
     MatDividerModule,
     MatSelectModule,
+    MatChipsModule,
     TimeagoModule.forRoot(),
     JwtModule.forRoot({
       config: {

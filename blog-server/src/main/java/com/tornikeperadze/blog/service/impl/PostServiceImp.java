@@ -4,10 +4,13 @@ import com.tornikeperadze.blog.dto.CommentDto;
 import com.tornikeperadze.blog.dto.request.PostRequest;
 import com.tornikeperadze.blog.dto.response.PostDetailResponse;
 import com.tornikeperadze.blog.dto.response.PostListResponse;
+import com.tornikeperadze.blog.dto.response.PostNumberInCategory;
 import com.tornikeperadze.blog.mapper.PostMapper;
+import com.tornikeperadze.blog.model.Category;
 import com.tornikeperadze.blog.model.Comment;
 import com.tornikeperadze.blog.model.Post;
 import com.tornikeperadze.blog.model.User;
+import com.tornikeperadze.blog.repository.CategoryRepository;
 import com.tornikeperadze.blog.repository.CommentRepository;
 import com.tornikeperadze.blog.repository.PostRepository;
 import com.tornikeperadze.blog.repository.UserRepository;
@@ -27,12 +30,14 @@ public class PostServiceImp implements PostService {
     private final PostRepository postRepository;
     private final UserRepository userRepository;
     private final CommentRepository commentRepository;
+    private final CategoryRepository categoryRepository;
 
     @Autowired
-    public PostServiceImp(PostRepository postRepository, UserRepository userRepository, CommentRepository commentRepository) {
+    public PostServiceImp(PostRepository postRepository, UserRepository userRepository, CommentRepository commentRepository, CategoryRepository categoryRepository) {
         this.postRepository = postRepository;
         this.userRepository = userRepository;
         this.commentRepository = commentRepository;
+        this.categoryRepository = categoryRepository;
     }
 
     @Override
@@ -107,5 +112,18 @@ public class PostServiceImp implements PostService {
     @Override
     public Post getById(Long postId) {
         return postRepository.findById(postId).get();
+    }
+
+    @Override
+    public List<PostNumberInCategory> postCategoryCount() {
+        List<Category> categories = this.categoryRepository.findAll();
+        List<PostNumberInCategory> postCategoryCount = new ArrayList<>();
+        for (Category cat: categories) {
+            Long postCount = this.postRepository.countPostByCategory_Name(cat.getName());
+            if (postCount > 0) {
+                postCategoryCount.add(new PostNumberInCategory(cat.getName(), postCount));
+            }
+        }
+        return postCategoryCount;
     }
 }

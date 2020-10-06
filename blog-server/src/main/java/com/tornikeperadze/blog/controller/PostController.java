@@ -4,6 +4,7 @@ import com.tornikeperadze.blog.dto.request.PostRequest;
 import com.tornikeperadze.blog.dto.response.MessageResponse;
 import com.tornikeperadze.blog.dto.response.PostDetailResponse;
 import com.tornikeperadze.blog.dto.response.PostListResponse;
+import com.tornikeperadze.blog.dto.response.PostNumberInCategory;
 import com.tornikeperadze.blog.service.PostService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -40,5 +41,10 @@ public class PostController {
     @GetMapping("/{id}")
     public ResponseEntity<PostDetailResponse> getPost(@PathVariable Long id) {
         return ResponseEntity.ok(postService.getPostDetail(id));
+    }
+
+    @GetMapping("/count-by-category")
+    public ResponseEntity<List<PostNumberInCategory>> postNumberInCategory() {
+        return ResponseEntity.ok(this.postService.postCategoryCount());
     }
 }

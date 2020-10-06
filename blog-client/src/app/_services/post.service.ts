@@ -5,6 +5,7 @@ import { PostCreate } from '../_models/post-create';
 import { Observable } from 'rxjs';
 import { PostList } from '../_models/post-list';
 import { PostDetail } from '../_models/post-detail';
+import { PostCategoryCount } from '../_models/post-category-count';
 
 @Injectable({
   providedIn: 'root',
@@ -24,5 +25,11 @@ export class PostService {
 
   getPostDetail(id): Observable<PostDetail> {
     return this.http.get<PostDetail>(`${this.baseUrl}/${id}`);
+  }
+
+  getPostCountByCategory(): Observable<PostCategoryCount[]> {
+    return this.http.get<PostCategoryCount[]>(
+      `${this.baseUrl}/count-by-category`
+    );
   }
 }

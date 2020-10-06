@@ -24,6 +24,19 @@
           </div>
         </mat-card>
       </div>
+      <div class="col-4">
+        <mat-card>
+          <mat-chip-list aria-label="Color selection">
+            <mat-chip [selected]="selectedCategory === 'All'" (click)="postsByCategory('All')">
+              All
+            </mat-chip>
+            <mat-chip *ngFor="let count of postCount" (click)="postsByCategory(count.name)"
+                      [selected]="selectedCategory === count.name" color="primary">
+              {{count.name}}({{count.count}})
+            </mat-chip>
+          </mat-chip-list>
+        </mat-card>
+      </div>
     </div>
   </div>
 </div>
