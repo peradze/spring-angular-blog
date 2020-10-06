@@ -7,12 +7,17 @@ import { LogoutComponent } from './auth/logout/logout.component';
 import { PostCreateComponent } from './post-create/post-create.component';
 import { ProfileComponent } from './profile/profile.component';
 import { PostDetailComponent } from './post-detail/post-detail.component';
+import { AuthGuard } from './_guards/auth.guard';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'posts/:id', component: PostDetailComponent },
-  { path: 'new-post', component: PostCreateComponent },
-  { path: 'profile', component: ProfileComponent },
+  {
+    path: 'new-post',
+    component: PostCreateComponent,
+    canActivate: [AuthGuard],
+  },
+  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'logout', component: LogoutComponent },
