@@ -21,6 +21,9 @@ export class PostDetailComponent implements OnInit {
 
   post: PostDetail;
   comments: CommentDetail[] = [];
+  commentsChunk: CommentDetail[];
+  commentToDisplay = 5;
+  moreComment = false;
   loading = false;
   postId;
   loggedIn = false;
@@ -40,6 +43,13 @@ export class PostDetailComponent implements OnInit {
         this.post = data;
         this.comments = this.post.comments;
         this.comments.reverse();
+        if (this.comments.length > this.commentToDisplay) {
+          this.commentsChunk = this.comments.slice(0, this.commentToDisplay);
+          this.moreComment = true;
+        } else {
+          this.commentsChunk = this.comments.slice(0, this.comments.length);
+          this.moreComment = false;
+        }
         this.commentForm.patchValue({ postId: Number(params.get('id')) });
       });
     });
@@ -53,8 +63,20 @@ export class PostDetailComponent implements OnInit {
         this.loading = false;
         this.postService.getPostDetail(this.postId).subscribe((res) => {
           this.comments = res.comments;
+          this.commentsChunk.unshift(this.comments[this.comments.length - 1]);
           this.comments.reverse();
         });
       });
+  }
+
+  moreComments(): void {
+    if (this.comments.length > this.commentToDisplay) {
+      this.commentToDisplay += this.commentToDisplay;
+      this.moreComment = true;
+      this.commentsChunk = this.comments.slice(0, this.commentToDisplay);
+      if (this.comments.length < this.commentToDisplay) {
+        this.moreComment = false;
+      }
+    }
   }
 }

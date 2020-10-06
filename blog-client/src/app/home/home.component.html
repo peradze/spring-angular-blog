@@ -8,7 +8,7 @@
           <div *ngFor="let post of posts; last as isLast" class="post-container">
             <div class="pbt2rem">
               <div class="blog-meta">
-                <div class="font-italic"><span>Date: </span>{{post.createdAt | date}}</div>
+                <div class="text-italic"><span>Date: </span>{{post.createdAt | date}}</div>
                 <div><span>Category: </span> {{post.category}}</div>
               </div>
               <h1><a [routerLink]="'/posts/'+post.id">{{post.title}}</a></h1>

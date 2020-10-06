@@ -32,7 +32,7 @@
                     <span *ngIf="loading" class="btn-loader"><mat-spinner color="primary" [diameter]="20" [strokeWidth]="2"></mat-spinner></span></button>
                 </div>
               </form>
-              <div *ngFor="let comment of comments">
+              <div *ngFor="let comment of commentsChunk">
                 <div class="comment-author">
                   <div>{{comment.author}}</div>
                 </div>
@@ -40,6 +40,9 @@
                 <div class="d-flex justify-content-end">
                   <div class="comment-date">{{comment.createdAt | timeago:false}}</div>
                 </div>
+              </div>
+              <div class="d-flex justify-content-center" *ngIf="moreComment">
+                <button mat-stroked-button color="primary" (click)="moreComments()">Load More</button>
               </div>
             </div>
           </div>
