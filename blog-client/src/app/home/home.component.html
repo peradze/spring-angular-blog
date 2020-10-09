@@ -4,7 +4,7 @@
   <div class="container">
     <div class="row">
       <div class="col-8">
-        <mat-card>
+        <mat-card *ngIf="posts.length != 0">
           <div *ngFor="let post of posts; last as isLast" class="post-container">
             <div class="pbt2rem">
               <div class="blog-meta">
@@ -23,9 +23,12 @@
             <mat-divider *ngIf="!isLast"></mat-divider>
           </div>
         </mat-card>
+        <mat-card *ngIf="posts.length == 0">
+          No posts to show
+        </mat-card>
       </div>
       <div class="col-4">
-        <mat-card>
+        <mat-card *ngIf="posts.length != 0">
           <mat-chip-list aria-label="Color selection">
             <mat-chip [selected]="selectedCategory === 'All'" (click)="postsByCategory('All')">
               All
