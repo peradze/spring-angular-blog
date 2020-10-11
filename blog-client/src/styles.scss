@@ -227,3 +227,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-
   margin-top: -.5rem;
   font-style: italic;
 }
+
+
+.active-link {
+  font-weight: bold;
+  border-left: 3px solid map-get($mat-indigo, 500);
+}
