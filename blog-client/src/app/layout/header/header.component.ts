@@ -9,6 +9,7 @@ import { ProfileService } from '../../_services/profile.service';
 })
 export class HeaderComponent implements OnInit {
   loggedIn: boolean;
+  hasAdminRole: boolean;
   fullName: string;
 
   constructor(
@@ -18,6 +19,7 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.loggedIn = this.authService.isAuthorized();
+    this.hasAdminRole = this.authService.hasAdminRole();
     this.profileService
       .getFullName()
       .subscribe((data) => (this.fullName = data));
