@@ -40,6 +40,11 @@ export class AuthService {
     return localStorage.getItem('currentUser') != null;
   }
 
+  hasAdminRole(): boolean {
+    const user: User = JSON.parse(localStorage.getItem('currentUser'));
+    return user.roles.findIndex(value => value === 'ROLE_ADMIN') !== -1;
+  }
+
   getAuthUser(): User | null {
     return this.isAuthorized() ? this.user : null;
   }
