@@ -6,7 +6,9 @@
       <button mat-button routerLink="/register">Register</button>
     </div>
     <div *ngIf="loggedIn">
-      <button mat-icon-button [matMenuTriggerFor]="menu"><mat-icon>account_circle</mat-icon></button>
+      <button mat-button [matMenuTriggerFor]="menu"><mat-icon>account_circle</mat-icon>
+        {{fullName}}
+      </button>
       <mat-menu #menu="matMenu">
         <button mat-menu-item routerLink="/new-post"><mat-icon>post_add</mat-icon> New Post</button>
         <button mat-menu-item routerLink="/profile"><mat-icon>person_outline</mat-icon> Profile</button>

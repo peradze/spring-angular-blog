@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProfileService } from '../_services/profile.service';
 
 @Component({
   selector: 'app-admin',
@@ -6,7 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['admin.component.scss'],
 })
 export class AdminComponent implements OnInit {
-  constructor() {}
+  fullName: string;
 
-  ngOnInit(): void {}
+  constructor(private profileService: ProfileService) {}
+
+  ngOnInit(): void {
+    this.profileService
+      .getFullName()
+      .subscribe((data) => (this.fullName = data));
+  }
 }
